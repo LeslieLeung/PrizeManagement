@@ -1,5 +1,6 @@
 package servlet.Student;
 
+import com.google.gson.Gson;
 import dao.StudentDAO;
 import model.Student;
 
@@ -32,5 +33,8 @@ public class StudentInfoServlet extends HttpServlet {
                 "    <p>年级：%s</p>",
                 student.number, student.name, student.school, student.major, student.grade)
         + prizeList +footer);
+
+//        Gson gson = new Gson();
+//        resp.getWriter().write(gson.toJson(student));
     }
 }

@@ -6,7 +6,7 @@
     <display-name>Archetype Created Web Application</display-name>
     <servlet>
         <servlet-name>StudentLoginServlet</servlet-name>
-        <servlet-class>servlet.StudentLoginServlet</servlet-class>
+        <servlet-class>servlet.Student.StudentLoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>StudentLoginServlet</servlet-name>
@@ -15,7 +15,7 @@
     
     <servlet>
         <servlet-name>StudentInfoServlet</servlet-name>
-        <servlet-class>servlet.StudentInfoServlet</servlet-class>
+        <servlet-class>servlet.Student.StudentInfoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>StudentInfoServlet</servlet-name>
@@ -24,7 +24,7 @@
     
     <servlet>
         <servlet-name>ListSinglePersonPrizeServlet</servlet-name>
-        <servlet-class>servlet.ListSinglePersonPrizeServlet</servlet-class>
+        <servlet-class>servlet.Student.ListSinglePersonPrizeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListSinglePersonPrizeServlet</servlet-name>
@@ -33,7 +33,7 @@
     
     <servlet>
         <servlet-name>PrizeEditServlet</servlet-name>
-        <servlet-class>servlet.PrizeEditServlet</servlet-class>
+        <servlet-class>servlet.Prize.PrizeEditServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>PrizeEditServlet</servlet-name>
@@ -42,7 +42,7 @@
     
     <servlet>
         <servlet-name>PrizeUpdateServlet</servlet-name>
-        <servlet-class>servlet.PrizeUpdateServlet</servlet-class>
+        <servlet-class>servlet.Prize.PrizeUpdateServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>PrizeUpdateServlet</servlet-name>
@@ -51,7 +51,7 @@
     
     <servlet>
         <servlet-name>PrizeDeleteServlet</servlet-name>
-        <servlet-class>servlet.PrizeDeleteServlet</servlet-class>
+        <servlet-class>servlet.Prize.PrizeDeleteServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>PrizeDeleteServlet</servlet-name>
@@ -60,7 +60,7 @@
 
     <servlet>
         <servlet-name>PrizeAddServlet</servlet-name>
-        <servlet-class>servlet.PrizeAddServlet</servlet-class>
+        <servlet-class>servlet.Prize.PrizeAddServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>PrizeAddServlet</servlet-name>

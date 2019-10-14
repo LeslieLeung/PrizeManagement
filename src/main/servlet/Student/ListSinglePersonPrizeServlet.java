@@ -1,5 +1,6 @@
 package servlet.Student;
 
+import com.google.gson.Gson;
 import dao.PrizeDAO;
 import model.Prize;
 
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet(name = "ListSinglePersonPrizeServlet")
@@ -42,5 +44,9 @@ public class ListSinglePersonPrizeServlet extends HttpServlet {
         sb.append("</table>");
 
         resp.getWriter().write(sb.toString());
+        Gson gson = new Gson();
+//        resp.getWriter().write(gson);
+        PrintWriter writer = resp.getWriter();
+        writer.write(gson.toJson(prizes));
     }
 }
