@@ -4,6 +4,7 @@ public class Response {
     private int code; //http code
     private String msg;
     private Object object;
+    private Token token;
 
     public Response(int code, String msg, Object object) {
         this.code = code;
