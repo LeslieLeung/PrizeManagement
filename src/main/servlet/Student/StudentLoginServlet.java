@@ -19,16 +19,20 @@ public class StudentLoginServlet extends javax.servlet.http.HttpServlet {
         throws ServletException, IOException {
         Gson gson = new Gson();
         Student student = new Student();
-//        BufferedReader br = new BufferedReader(new InputStreamReader((ServletInputStream) request.getInputStream()));
-        BufferedReader reader = request.getReader();
-        String json = reader.readLine();
-        System.out.println(json);
-        reader.close();
 
-        student = gson.fromJson(json, student.getClass());
+//        BufferedReader reader = request.getReader();
+//        String json = "";
+//        String line;
+//        while ((line = reader.readLine()) != null) {
+//            json = json.concat(line);
+//        }
+//        System.out.println(json);
+//        reader.close();
 
-//        student.number = request.getParameter("number");
-//        student.password = request.getParameter("password");
+//        student = gson.fromJson(json, student.getClass());
+
+        student.number = request.getParameter("number");
+        student.password = request.getParameter("password");
         System.out.println(student.toString());
 
         boolean rs = (new StudentDAO()).validatePassword(student);
@@ -36,11 +40,11 @@ public class StudentLoginServlet extends javax.servlet.http.HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         if (!rs) {
-//            response.getWriter().write("<script>alert('用户名或密码错误');window.location.href='login.html';</script>");
-            response.getWriter().write(gson.toJson((new Response(400, "用户名或密码错误", null))));
+            response.getWriter().write("<script>alert('用户名或密码错误');window.location.href='login.html';</script>");
+//            response.getWriter().write(gson.toJson((new Response(400, "用户名或密码错误", null))));
         } else {
-//            response.getWriter().write(String.format("<script>alert('登陆成功');window.location.href='/PrizeManagement_war_exploded/studentInfo?number=%s';</script>", student.number));
-            response.getWriter().write(gson.toJson((new Response(200, "登陆成功", null))));
+            response.getWriter().write(String.format("<script>alert('登陆成功');window.location.href='/PrizeManagement_war_exploded/studentInfo?number=%s';</script>", student.number));
+//            response.getWriter().write(gson.toJson((new Response(200, "登陆成功", null))));
         }
 
 

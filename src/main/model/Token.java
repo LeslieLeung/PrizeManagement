@@ -1,5 +1,6 @@
 package model;
 
+import com.google.gson.Gson;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import org.apache.commons.codec.binary.Base64;
@@ -44,14 +45,16 @@ public class Token {
         return stringBuffer.toString();
     }
 
+//    public String getToken() {
+//
+//    }
+
     public static void main(String[] args) {
 //        SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-        String secret_ = string2SHA256StrJava("ameow");
-        byte[] secret = secret_.getBytes();
+//        String secret_ = string2SHA256StrJava("ameow");
+        byte[] secret = "2162d3e65a421bc0ac76ae5acfe29c650becb73f2a9b8ce57941036331b1aaa8".getBytes();
         SecretKey key = Keys.hmacShaKeyFor(secret);
-//        byte[] skey = Base64.decodeBase64("ameow");
-//        SecretKey key = Keys.hmacShaKeyFor(skey);
-        System.out.println(key);
+
         String jws = Jwts.builder()
                 .setHeaderParam("kid", "123456")
                 .setSubject("111")
@@ -69,8 +72,11 @@ public class Token {
                     .setSigningKey(key)
                     .parseClaimsJws(jws);
             System.out.println(jwsR);
+            System.out.println(jwsR.getBody().get("weisha"));
+
         } catch (JwtException ex) {
             System.out.println("???");
         }
+
     }
 }
