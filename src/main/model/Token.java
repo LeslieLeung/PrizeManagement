@@ -1,53 +1,35 @@
 package model;
 
 import com.google.gson.Gson;
+import dao.StudentDAO;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
-import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
-import java.io.UnsupportedEncodingException;
-import java.security.Key;
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
-import java.security.MessageDigest;
 
 public class Token {
     private String jwt;
+    final private SecretKey key = Keys.hmacShaKeyFor("2162d3e65a421bc0ac76ae5acfe29c650becb73f2a9b8ce57941036331b1aaa8".getBytes()); //key
 
-    public static String string2SHA256StrJava(String str){
-        MessageDigest messageDigest;
-        String encodeStr = "";
-        try {
-            messageDigest = MessageDigest.getInstance("SHA-256");
-            messageDigest.update(str.getBytes("UTF-8"));
-            encodeStr = byte2Hex(messageDigest.digest());
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return encodeStr;
+    public String getToken(String number) {
+        //先获取用户信息
+        Student student = new Student();
+        student = (new StudentDAO().getInfo(number));
+
+        Claims claims = Jwts.claims();
+        claims.put("number", student.number);
+        claims.put("name", student.name);
+
+        String jwt = Jwts.builder()
+                .setIssuer("com.ameow")
+                .setSubject("student")
+                .setNotBefore(new Date())
+                .setClaims(claims)
+                .signWith(key)
+                .compact();
+        return jwt;
     }
-
-    private static String byte2Hex(byte[] bytes){
-        StringBuffer stringBuffer = new StringBuffer();
-        String temp = null;
-        for (int i=0;i<bytes.length;i++){
-            temp = Integer.toHexString(bytes[i] & 0xFF);
-            if (temp.length()==1){
-                //1得到一位的进行补0操作
-                stringBuffer.append("0");
-            }
-            stringBuffer.append(temp);
-        }
-        return stringBuffer.toString();
-    }
-
-//    public String getToken() {
-//
-//    }
 
     public static void main(String[] args) {
 //        SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS256);

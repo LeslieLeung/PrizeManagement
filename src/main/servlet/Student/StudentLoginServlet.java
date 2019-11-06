@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import model.Response;
 import model.Student;
 import dao.StudentDAO;
+import model.Token;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
@@ -17,9 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 public class StudentLoginServlet extends javax.servlet.http.HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        Gson gson = new Gson();
+//        Gson gson = new Gson();
         Student student = new Student();
-
+//
 //        BufferedReader reader = request.getReader();
 //        String json = "";
 //        String line;
@@ -44,7 +45,9 @@ public class StudentLoginServlet extends javax.servlet.http.HttpServlet {
 //            response.getWriter().write(gson.toJson((new Response(400, "用户名或密码错误", null))));
         } else {
             response.getWriter().write(String.format("<script>alert('登陆成功');window.location.href='/PrizeManagement_war_exploded/studentInfo?number=%s';</script>", student.number));
-//            response.getWriter().write(gson.toJson((new Response(200, "登陆成功", null))));
+            //拿token
+//            String token = (new Token()).getToken(student.number);
+//            response.getWriter().write(gson.toJson((new Response(200, "登陆成功", token))));
         }
 
 
