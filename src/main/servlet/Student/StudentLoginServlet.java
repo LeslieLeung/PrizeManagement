@@ -39,9 +39,10 @@ public class StudentLoginServlet extends javax.servlet.http.HttpServlet {
         boolean rs = (new StudentDAO()).validatePassword(student);
 
         response.setCharacterEncoding("UTF-8");
+        response.getWriter().write("<html><head><meta charset='UTF-8'></head>");
 
         if (!rs) {
-            response.getWriter().write("<script>alert('用户名或密码错误');window.location.href='login.html';</script>");
+            response.getWriter().write("<script>alert('用户名或密码错误');window.location.href='studentLogin.html';</script>");
 //            response.getWriter().write(gson.toJson((new Response(400, "用户名或密码错误", null))));
         } else {
             response.getWriter().write(String.format("<script>alert('登陆成功');window.location.href='/PrizeManagement_war_exploded/studentInfo?number=%s';</script>", student.number));

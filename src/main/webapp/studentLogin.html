@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>学生登录</title>
+    <style type="text/css">
+        #login{
+        }
+        .center-in-center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 <body>
-<div style="width: 100%; text-align: center">
+<div id="login" class="center-in-center" style="text-align: center">
     <h1>学生登录</h1>
     <form action="/PrizeManagement_war_exploded/studentLogin" method="post">
         学号：<input type="text" name="number"><br>
         密码：<input type="password" name="password"><br>
         <input type="submit" value="登录">
-
     </form>
 </div>
 

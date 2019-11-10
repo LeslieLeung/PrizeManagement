@@ -75,6 +75,16 @@
       <filter-name>EncodingFilter</filter-name>
       <url-pattern>/*</url-pattern>
     </filter-mapping>
+    
+    <servlet>
+        <servlet-name>AdminLogin</servlet-name>
+        <servlet-class>servlet.Admin.AdminLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminLogin</servlet-name>
+        <url-pattern>/adminLogin</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
 
