@@ -22,8 +22,6 @@ public class StudentDAO {
                 "root", "");
     }
 
-
-
     public boolean validatePassword(Student student) {
 
         String sql = "SELECT * FROM student WHERE number = ? AND password = ?";
@@ -58,8 +56,11 @@ public class StudentDAO {
 
             ResultSet rs = ps.executeQuery();
 
-            if (rs.next()) return true;
-            else return false;
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -90,6 +91,23 @@ public class StudentDAO {
         return student;
     }
 
+    public void editInfo(Student student)
+    {
+        String sql = "UPDATE student SET name=?, school=?, major=?, grade=? WHERE number = ?";
 
+        try (Connection c = getConnection(); PreparedStatement ps = c.prepareStatement(sql);) {
+
+
+            ps.setString(1, student.name);
+            ps.setString(2, student.school);
+            ps.setString(3, student.major);
+            ps.setString(4, student.grade);
+            ps.setString(5, student.number);
+
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

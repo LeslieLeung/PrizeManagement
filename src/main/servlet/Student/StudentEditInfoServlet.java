@@ -26,21 +26,17 @@ public class StudentEditInfoServlet extends HttpServlet {
         String header = "<html><head><meta charset='utf-8'></head><body>";
         String footer = "</body></html>";
 
-        StringBuffer sb = new StringBuffer();
-
-        sb.append("<!DOCTYPE html>");
-
-        sb.append("<div align='center'><form action='/updateStudentInfo' method='post'>");
-        sb.append("学号<input type=\"text\" name=\"number\" value=\"%s\">\n" +
-                "    姓名<input type=\"text\" name=\"name\" value=\"%s\">\n" +
-                "    学院<input type=\"text\" name=\"school\" value=\"%s\">\n" +
-                "    专业<input type=\"text\" name=\"major\" value=\"%s\">\n" +
-                "    年级<input type=\"text\" name=\"grade\" value=\"%s\">\n" +
-                "    <input type=\"submit\" value=\"确定\">\n" +
+        String sb = "<!DOCTYPE html>" +
+                "<div align='center'><form action='/PrizeManagement_war_exploded/updateStudentInfo' method='post'>" +
+                "学号<input type='text' name='number' value='%s'><br>" +
+                "    姓名<input type='text' name='name' value='%s'><br>" +
+                "    学院<input type='text' name='school' value='%s'><br>" +
+                "    专业<input type='text' name='major' value='%s'><br>" +
+                "    年级<input type='text' name='grade' value='%s'><br>" +
+                "    <input type='submit' value='确定'>\n" +
                 "</form>\n" +
-                "</div>");
-
-        String html = String.format(sb.toString(), student.number, student.name,
+                "</div>";
+        String html = String.format(sb, student.number, student.name,
                 student.school, student.major, student.grade);
 
         resp.setContentType("text/html; charset=UTF-8");
