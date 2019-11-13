@@ -1,5 +1,6 @@
 package dao;
 
+import model.Admin;
 import model.Student;
 
 import java.sql.*;
@@ -22,14 +23,14 @@ public class AdminDAO {
                 "root","");
     }
 
-    public boolean validatePassword(Student student) {
+    public boolean validatePassword(Admin admin) {
 
         String sql = "SELECT * FROM admin WHERE number = ? AND password = ?";
         try (Connection c = getConnection(); PreparedStatement ps = c.prepareStatement(sql);) {
 
-            System.out.println(student.toString());
-            ps.setString(1, student.number);
-            ps.setString(2, student.password);
+            System.out.println(admin.toString());
+            ps.setString(1, admin.number);
+            ps.setString(2, admin.password);
 
             ResultSet rs = ps.executeQuery();
 
