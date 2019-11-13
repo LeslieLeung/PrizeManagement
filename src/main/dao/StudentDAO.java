@@ -4,6 +4,9 @@ import model.Student;
 
 import java.sql.*;
 
+/**
+ * @author leslie
+ */
 public class StudentDAO {
 
     public StudentDAO() {
@@ -33,9 +36,13 @@ public class StudentDAO {
             ResultSet rs = ps.executeQuery();
 
             System.out.println(ps);
-//            c.close();
-            if (rs.next()) return true; //正确
-            else return false; //错误
+            if (rs.next()) {
+                //正确
+                return true;
+            } else {
+                //错误
+                return false;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             return false;

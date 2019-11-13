@@ -85,6 +85,15 @@
         <url-pattern>/adminLogin</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>StudentEditInfoServlet</servlet-name>
+        <servlet-class>servlet.Student.StudentEditInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentEditInfoServlet</servlet-name>
+        <url-pattern>/editStudentInfo</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
 

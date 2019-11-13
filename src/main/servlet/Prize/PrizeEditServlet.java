@@ -10,6 +10,9 @@ import java.io.IOException;
 import model.Prize;
 import dao.PrizeDAO;
 
+/**
+ * @author leslie
+ */
 @WebServlet(name = "PrizeEditServlet")
 public class PrizeEditServlet extends HttpServlet {
     @Override
