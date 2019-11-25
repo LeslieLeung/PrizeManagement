@@ -114,7 +114,7 @@ public class PrizeDAO {
             ps.setString(3, prize.teacher);
             ps.setString(4, prize.date);
             ps.setString(5, prize.department);
-            ps.setInt(6, prize.student_number);
+            ps.setString(6, prize.student_number);
 
             ps.execute();
 
