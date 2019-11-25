@@ -110,4 +110,9 @@ public class StudentDAO {
         }
     }
 
+    public String getName(String number) {
+        Student student = this.getInfo(number);
+        return student.name;
+    }
+
 }

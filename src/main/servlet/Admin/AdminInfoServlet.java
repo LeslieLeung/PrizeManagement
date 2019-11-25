@@ -15,18 +15,22 @@ public class AdminInfoServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Admin admin = null;
-        String number = req.getParameter("number"); //get传值
+        String number = req.getParameter("number");
 
         admin = (new AdminDAO()).getInfo(number);
 
-        String header = "<html><head><meta charset='utf-8'></head><body>";
-        String footer = "</body></html>";
-
-        String welcome = "<p>欢迎您，%s老师</p>";
-//        String prizeList = String.format(); //TODO 写完显示奖项页面再做这里
-
         resp.setContentType("text/html; charset=UTF-8");
 
+        String header = "<html><head><meta charset='utf-8'></head><body>";
+        String footer = "</body></html>";
+        String copyright = "<div style=\"height: 40px;line-height: 40px; position: fixed; bottom: 0;  width: 100%; text-align: center;\">\n" +
+                "    CopyRight@Leslie Leung Email:lesily9@gmail.com\n" +
+                "</div>";
+
+        String welcome = String.format("<h1>欢迎您，%s老师</h1>", number);
+        String prizeList = "<a href='/PrizeManagement_war_exploded/listAllPrize'>查看奖项</a>";
+
+        resp.getWriter().write(header + welcome + prizeList +copyright+ footer);
 
     }
 }

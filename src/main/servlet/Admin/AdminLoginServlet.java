@@ -22,6 +22,7 @@ public class AdminLoginServlet extends HttpServlet {
 
         boolean rs = (new AdminDAO()).validatePassword(admin);
 
+        System.out.println(rs);
         resp.setCharacterEncoding("UTF-8");
         resp.getWriter().write("<html><head><meta charset='UTF-8'></head>");
 

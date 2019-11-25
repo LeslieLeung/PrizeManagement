@@ -18,6 +18,12 @@ public class PrizeDeleteServlet extends HttpServlet {
 
         new PrizeDAO().deletePrize(id);
 
-        resp.sendRedirect(String.format("/PrizeManagement_war_exploded/listSinglePersonPrize?number=%s", number));
+        int auth = Integer.parseInt(req.getParameter("auth"));
+
+        if (auth == 1) {
+            resp.sendRedirect("/PrizeManagement_war_exploded/listAllPrize");
+        } else {
+            resp.sendRedirect(String.format("/PrizeManagement_war_exploded/listSinglePersonPrize?number=%s", number));
+        }
     }
 }

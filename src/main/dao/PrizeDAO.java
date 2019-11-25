@@ -140,6 +140,7 @@ public class PrizeDAO {
                 prize.teacher = rs.getString("teacher");
                 prize.date = rs.getString("date");
                 prize.department = rs.getString("department");
+                prize.student_number = rs.getString("student_number");
                 prizes.add(prize);
             }
         } catch (SQLException e) {

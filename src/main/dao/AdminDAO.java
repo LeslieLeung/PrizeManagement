@@ -19,7 +19,7 @@ public class AdminDAO {
     }
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbd:mysql://localhost:3306/prize_management?characterEncoding=UTF-8",
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/prize_management?characterEncoding=UTF-8",
                 "root","");
     }
 

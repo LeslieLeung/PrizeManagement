@@ -19,6 +19,7 @@ public class PrizeEditServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         String number = req.getParameter("number");
+        String auth = req.getParameter("auth");
 
         Prize prize = (new PrizeDAO()).getPrize(id);
 
@@ -27,7 +28,7 @@ public class PrizeEditServlet extends HttpServlet {
 
         format.append("<!DOCTYPE html>");
 
-        format.append("<div align='center'><form action='/PrizeManagement_war_exploded/updatePrize' method='post'>");
+        format.append("<div align='center'><form action='/PrizeManagement_war_exploded/updatePrize?auth=%s' method='post'>");
         format.append("<h1>修改奖项</h1>");
         format.append("奖项名称 ： <input type='text' name='name' value='%s' > <br>");
         format.append("奖项等级 ： <input type='text' name='level'  value='%s' > <br>");
@@ -39,7 +40,7 @@ public class PrizeEditServlet extends HttpServlet {
         format.append("<input type='submit' value='更新'>");
         format.append("</form></div>");
 
-        String html = String.format(format.toString(), prize.name, prize.level, prize.teacher, prize.date,
+        String html = String.format(format.toString(), auth, prize.name, prize.level, prize.teacher, prize.date,
                 prize.department, prize.id, number);
 
         resp.getWriter().write(html);

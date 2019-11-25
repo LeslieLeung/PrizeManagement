@@ -23,7 +23,7 @@ public class PrizeAddServlet extends HttpServlet {
         prize.teacher = req.getParameter("teacher");
         prize.date = req.getParameter("date");
         prize.department = req.getParameter("department");
-        prize.student_number = Integer.parseInt(req.getParameter("student_number"));
+        prize.student_number = (req.getParameter("student_number"));
 
         new PrizeDAO().addPrize(prize);
 

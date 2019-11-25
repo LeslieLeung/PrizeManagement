@@ -34,10 +34,10 @@ public class ListAllPrizeServlet extends HttpServlet {
                 "        <th>编辑</th>\n" +
                 "        <th>删除</th>\n" +
                 "    </tr>");
-        String trFormat = "<tr><td>%d</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td><a href='/PrizeManagement_war_exploded/editPrize?id=%d&number=%s'>编辑</a></td><td><a href='/PrizeManagement_war_exploded/deletePrize?id=%d&number=%s'>删除</a></td></tr>";
+        String trFormat = "<tr><td>%d</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td><a href='/PrizeManagement_war_exploded/editPrize?id=%d&number=%s&auth=1'>编辑</a></td><td><a href='/PrizeManagement_war_exploded/deletePrize?id=%d&number=%s&auth=1'>删除</a></td></tr>";
         for (Prize prize:prizes) {
             String number = prize.student_number;
-            String studentName = (new StudentDAO().getInfo(number)).name;
+            String studentName = (new StudentDAO().getName(number));
             String tr = String.format(trFormat, prize.id, prize.name, prize.date, prize.level, prize.teacher, prize.department, studentName, number,prize.id, number, prize.id, number);
             sb.append(tr);
         }

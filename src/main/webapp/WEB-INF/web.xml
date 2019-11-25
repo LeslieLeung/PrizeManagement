@@ -103,6 +103,24 @@
         <url-pattern>/updateStudentInfo</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AdminInfoServlet</servlet-name>
+        <servlet-class>servlet.Admin.AdminInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminInfoServlet</servlet-name>
+        <url-pattern>/adminInfo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListAllPrizeServlet</servlet-name>
+        <servlet-class>servlet.Admin.ListAllPrizeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListAllPrizeServlet</servlet-name>
+        <url-pattern>/listAllPrize</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
 
