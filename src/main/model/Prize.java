@@ -7,13 +7,13 @@ public class Prize {
     public String teacher;
     public String date;
     public String department;
-    public int student_number;
+    public String student_number;
 
-    public int getStudent_number() {
+    public String getStudent_number() {
         return student_number;
     }
 
-    public void setStudent_number(int student_number) {
+    public void setStudent_number(String student_number) {
         this.student_number = student_number;
     }
 

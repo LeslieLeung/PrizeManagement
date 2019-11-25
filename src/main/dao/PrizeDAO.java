@@ -123,4 +123,29 @@ public class PrizeDAO {
         }
     }
 
+    public List<Prize> getAllPrize() {
+        List<Prize> prizes = new ArrayList<Prize>();
+
+
+        String sql = "SELECT * FROM prize";
+        try (Connection c = getConnection(); PreparedStatement ps = c.prepareStatement(sql);) {
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Prize prize = new Prize();
+                prize.id = rs.getInt("id");
+                prize.name = rs.getString("name");
+                prize.level = rs.getString("level");
+                prize.teacher = rs.getString("teacher");
+                prize.date = rs.getString("date");
+                prize.department = rs.getString("department");
+                prizes.add(prize);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return prizes;
+    }
+
 }
