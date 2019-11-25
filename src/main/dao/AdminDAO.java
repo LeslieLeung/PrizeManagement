@@ -48,6 +48,26 @@ public class AdminDAO {
         }
     }
 
+    public Admin getInfo(String number) {
+        Admin admin = null;
+        String sql = "SELECT * FROM admin WHERE number = ?";
+        try (Connection c = getConnection(); PreparedStatement ps = c.prepareStatement(sql);) {
+
+            ps.setString(1, number);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                admin = new Admin();
+                admin.id = rs.getInt("id");
+                admin.number = rs.getString("number");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return admin;
+    }
+
 
 
 

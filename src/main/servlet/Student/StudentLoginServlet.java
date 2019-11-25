@@ -12,10 +12,13 @@ import model.Token;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@WebServlet(name = "StudentLoginServlet")
 public class StudentLoginServlet extends javax.servlet.http.HttpServlet {
+    @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
 //        Gson gson = new Gson();
